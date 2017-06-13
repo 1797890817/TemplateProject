@@ -28,8 +28,8 @@ option = {
 	xAxis : {
 		type : 'category',
 		boundaryGap : false,
-		data : [ '第一次JavaBase', '第二次WebBase', '第三次JavaWeb', '第四次DataBase',
-				'第五次' ]
+		data : [ '第一次JavaBase', '第二次JavaBase', '第三次RegExp', '第四次WebBase',
+				'第五次JavaWeb' ]
 	},
 	yAxis : {
 		type : 'value'
