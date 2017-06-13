@@ -6,11 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../Jslib/echarts.js"></script>
 <script type="text/javascript" src="../Javascript/ScoreECharts.js"></script>
-<title>学生信息趋势表</title>
+<title>学生考试成绩趋势图</title>
 </head>
 <body>
 	<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
-	<div id="main" style="width: 1200px; height: 800px;"></div>
+	<div id="main" style="width: 1200px; height: 900px;"></div>
 	<script type="text/javascript">
 		// 基于准备好的dom，初始化echarts实例
 		var myChart = echarts.init(document.getElementById('main'));
