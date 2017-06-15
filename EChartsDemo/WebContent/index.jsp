@@ -9,5 +9,6 @@
 <body>
 	<h1> Hello ECharts!</h1>
 	<a href="Jsp/ScoreEChartsDemo.jsp">查看学生成绩趋势表</a>
+	<a href="html/chatroom.html">进入聊天室</a>
 </body>
 </html>
