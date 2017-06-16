@@ -7,11 +7,17 @@
 <script type="text/javascript">
 	// 创建WebSocket对象
 	var webSocket = new WebSocket(
-			"ws://localhost:8080/EChartsDemo/websocket/chat");
+			"ws://192.168.1.125:8180/EChartsDemo/websocket/chat");
 	var sendMsg = function() {
 		var inputElement = document.getElementById('msg');
+
 		// 发送消息
-		webSocket.send(inputElement.value);
+		if (inputElement.value != "") {
+			webSocket.send(inputElement.value);
+		}else {
+			alert("不允许发送空信息！")
+		}
+
 		// 清空单行文本框
 		inputElement.value = "";
 	}
