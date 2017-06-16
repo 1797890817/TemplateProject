@@ -77,6 +77,7 @@ public class ChatEntpoint {
 			try {
 				synchronized (client) {
 					// 发送消息
+					@SuppressWarnings("deprecation")
 					String now = new Date().toLocaleString();
 					client.session.getBasicRemote().sendText(now+ ":"+ msg);
 				}
