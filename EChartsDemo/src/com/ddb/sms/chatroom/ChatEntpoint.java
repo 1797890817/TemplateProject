@@ -11,7 +11,7 @@ import javax.websocket.server.*;
 //import util.HTMLFilter;
 /**
  * Description: <br/>
- * ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> <br/>
+ * ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> <br/>
  * Copyright (C), 2001-2016, Yeeku.H.Lee <br/>
  * This program is protected by copyright laws. <br/>
  * Program Name: <br/>
@@ -22,76 +22,76 @@ import javax.websocket.server.*;
  */
 @ServerEndpoint(value = "/websocket/chat")
 public class ChatEntpoint {
-	private static final String GUEST_PREFIX = "·Ã¿Í";
+	private static final String GUEST_PREFIX = "è®¿å®¢";
 	private static final AtomicInteger connectionIds = new AtomicInteger(0);
-	// ¶¨ÒåÒ»¸ö¼¯ºÏ£¬ÓÃÓÚ±£´æËùÓĞ½ÓÈëµÄWebSocket¿Í»§¶Ë
+	// å®šä¹‰ä¸€ä¸ªé›†åˆï¼Œç”¨äºä¿å­˜æ‰€æœ‰æ¥å…¥çš„WebSocketå®¢æˆ·ç«¯
 	private static final Set<ChatEntpoint> clientSet = new CopyOnWriteArraySet<>();
-	// ¶¨ÒåÒ»¸ö³ÉÔ±±äÁ¿£¬¼ÇÂ¼WebSocket¿Í»§¶ËµÄÁÄÌìêÇ³Æ
+	// å®šä¹‰ä¸€ä¸ªæˆå‘˜å˜é‡ï¼Œè®°å½•WebSocketå®¢æˆ·ç«¯çš„èŠå¤©æ˜µç§°
 	private final String nickname;
-	// ¶¨ÒåÒ»¸ö³ÉÔ±±äÁ¿£¬¼ÇÂ¼ÓëWebSocketÖ®¼äµÄ»á»°
+	// å®šä¹‰ä¸€ä¸ªæˆå‘˜å˜é‡ï¼Œè®°å½•ä¸WebSocketä¹‹é—´çš„ä¼šè¯
 	private Session session;
 
 	public ChatEntpoint() {
 		nickname = GUEST_PREFIX + connectionIds.getAndIncrement();
 	}
 
-	// µ±¿Í»§¶ËÁ¬½Ó½øÀ´Ê±×Ô¶¯¼¤·¢¸Ã·½·¨
+	// å½“å®¢æˆ·ç«¯è¿æ¥è¿›æ¥æ—¶è‡ªåŠ¨æ¿€å‘è¯¥æ–¹æ³•
 	@OnOpen
 	public void start(Session session) {
 		this.session = session;
-		// ½«WebSocket¿Í»§¶Ë»á»°Ìí¼Óµ½¼¯ºÏÖĞ
+		// å°†WebSocketå®¢æˆ·ç«¯ä¼šè¯æ·»åŠ åˆ°é›†åˆä¸­
 		clientSet.add(this);
-		String message = String.format("¡¾%s %s¡¿", nickname, "¼ÓÈëÁËÁÄÌìÊÒ£¡");
-		// ·¢ËÍÏûÏ¢
+		String message = String.format("ã€%s %sã€‘", nickname, "åŠ å…¥äº†èŠå¤©å®¤ï¼");
+		// å‘é€æ¶ˆæ¯
 		broadcast(message);
 	}
 
-	// µ±¿Í»§¶Ë¶Ï¿ªÁ¬½ÓÊ±×Ô¶¯¼¤·¢¸Ã·½·¨
+	// å½“å®¢æˆ·ç«¯æ–­å¼€è¿æ¥æ—¶è‡ªåŠ¨æ¿€å‘è¯¥æ–¹æ³•
 	@OnClose
 	public void end() {
 		clientSet.remove(this);
-		String message = String.format("¡¾%s %s¡¿", nickname, "Àë¿ªÁËÁÄÌìÊÒ£¡");
-		// ·¢ËÍÏûÏ¢
+		String message = String.format("ã€%s %sã€‘", nickname, "ç¦»å¼€äº†èŠå¤©å®¤ï¼");
+		// å‘é€æ¶ˆæ¯
 		broadcast(message);
 	}
 
-	// Ã¿µ±ÊÕµ½¿Í»§¶ËÏûÏ¢Ê±×Ô¶¯¼¤·¢¸Ã·½·¨
+	// æ¯å½“æ”¶åˆ°å®¢æˆ·ç«¯æ¶ˆæ¯æ—¶è‡ªåŠ¨æ¿€å‘è¯¥æ–¹æ³•
 	@OnMessage
 	public void incoming(String message) {
 		String filteredMessage = String.format("%s: %s", nickname, filter(message));
-		// ·¢ËÍÏûÏ¢
+		// å‘é€æ¶ˆæ¯
 		broadcast(filteredMessage);
 	}
 
-	// µ±¿Í»§¶ËÍ¨ĞÅ³öÏÖ´íÎóÊ±£¬¼¤·¢¸Ã·½·¨
+	// å½“å®¢æˆ·ç«¯é€šä¿¡å‡ºç°é”™è¯¯æ—¶ï¼Œæ¿€å‘è¯¥æ–¹æ³•
 	@OnError
 	public void onError(Throwable t) throws Throwable {
-		System.out.println("WebSocket·şÎñ¶Ë´íÎó " + t);
+		System.out.println("WebSocketæœåŠ¡ç«¯é”™è¯¯ " + t);
 	}
 
-	// ÊµÏÖ¹ã²¥ÏûÏ¢µÄ¹¤¾ß·½·¨
+	// å®ç°å¹¿æ’­æ¶ˆæ¯çš„å·¥å…·æ–¹æ³•
 	private static void broadcast(String msg) {
-		// ±éÀú·şÎñÆ÷¹ØÁªµÄËùÓĞ¿Í»§¶Ë
+		// éå†æœåŠ¡å™¨å…³è”çš„æ‰€æœ‰å®¢æˆ·ç«¯
 		for (ChatEntpoint client : clientSet) {
 			try {
 				synchronized (client) {
-					// ·¢ËÍÏûÏ¢
+					// å‘é€æ¶ˆæ¯
 					client.session.getBasicRemote().sendText(msg);
 				}
 			} catch (IOException e) {
-				System.out.println("ÁÄÌì´íÎó£¬Ïò¿Í»§¶Ë " + client + " ·¢ËÍÏûÏ¢³öÏÖ´íÎó¡£");
+				System.out.println("èŠå¤©é”™è¯¯ï¼Œå‘å®¢æˆ·ç«¯ " + client + " å‘é€æ¶ˆæ¯å‡ºç°é”™è¯¯ã€‚");
 				clientSet.remove(client);
 				try {
 					client.session.close();
 				} catch (IOException e1) {
 				}
-				String message = String.format("¡¾%s %s¡¿", client.nickname, "ÒÑ¾­±»¶Ï¿ªÁËÁ¬½Ó¡£");
+				String message = String.format("ã€%s %sã€‘", client.nickname, "å·²ç»è¢«æ–­å¼€äº†è¿æ¥ã€‚");
 				broadcast(message);
 			}
 		}
 	}
 
-	// ¶¨ÒåÒ»¸ö¹¤¾ß·½·¨£¬ÓÃÓÚ¶Ô×Ö·û´®ÖĞµÄHTML×Ö·û±êÇ©½øĞĞ×ªÒå
+	// å®šä¹‰ä¸€ä¸ªå·¥å…·æ–¹æ³•ï¼Œç”¨äºå¯¹å­—ç¬¦ä¸²ä¸­çš„HTMLå­—ç¬¦æ ‡ç­¾è¿›è¡Œè½¬ä¹‰
 	private static String filter(String message) {
 		if (message == null)
 			return null;
@@ -99,7 +99,7 @@ public class ChatEntpoint {
 		message.getChars(0, message.length(), content, 0);
 		StringBuilder result = new StringBuilder(content.length + 50);
 		for (int i = 0; i < content.length; i++) {
-			// ¿ØÖÆ¶Ô¼âÀ¨ºÅµÈÌØÊâ×Ö·û½øĞĞ×ªÒå
+			// æ§åˆ¶å¯¹å°–æ‹¬å·ç­‰ç‰¹æ®Šå­—ç¬¦è¿›è¡Œè½¬ä¹‰
 			switch (content[i]) {
 			case '<':
 				result.append("&lt;");
