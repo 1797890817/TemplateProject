@@ -1,6 +1,7 @@
 package com.ddb.sms.chatroom;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -76,7 +77,8 @@ public class ChatEntpoint {
 			try {
 				synchronized (client) {
 					// 发送消息
-					client.session.getBasicRemote().sendText(msg);
+					String now = new Date().toLocaleString();
+					client.session.getBasicRemote().sendText(now+ ":"+ msg);
 				}
 			} catch (IOException e) {
 				System.out.println("聊天错误，向客户端 " + client + " 发送消息出现错误。");
