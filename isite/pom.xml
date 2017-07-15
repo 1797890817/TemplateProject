@@ -260,9 +260,11 @@
 					<reload>automatic</reload>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
 					<httpConnector>
+						<!-- 指定项目在浏览器中访问的端口为8080 -->
 						<port>8080</port>
 					</httpConnector>
 					<webApp>
+						<!--指定访问的上下文为/isite,isite为项目名称 -->
 						<contextPath>/isite</contextPath>
 					</webApp>
 				</configuration>
