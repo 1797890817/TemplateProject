@@ -4,13 +4,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>SSJ-HomePage</title>
+    <title>登录</title>
 </head>
 <body>
-<h1>Hello World!</h1>
-<span>${errMsgList}</span>
 
 <form action="<%= request.getContextPath()%>/login" method="post">
+    <span>${errMsgList}</span>
     <table align="center" bgcolor="#faebd7">
         <tr>
             <td><span>用户名:</span></td>

@@ -5,9 +5,11 @@ import com.ddbin.isite.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.lang.invoke.MethodType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +20,14 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    //login的请求login.jsp页面
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "login";
 
-    @RequestMapping(value = "/login")
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView login(HttpSession session, String username, String password) {
         ModelAndView mv = new ModelAndView();
         List<String> errMsgList = new ArrayList<String>();
@@ -50,9 +58,18 @@ public class LoginController {
                 mv.setViewName("main");
                 return mv;
             }
-
         }
-
     }
+
+    @RequestMapping(value = "/logout")
+    public ModelAndView login(HttpSession session) {
+        ModelAndView mv = new ModelAndView();
+        //取消登录状态
+        session.removeAttribute("userName");
+        session.invalidate();//让会话失效
+        mv.setViewName("login");
+        return mv;
+    }
+
 
 }

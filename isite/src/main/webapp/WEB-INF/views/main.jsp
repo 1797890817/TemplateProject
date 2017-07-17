@@ -12,6 +12,7 @@
 </head>
 <body>
 <p>${userName},您好，欢迎您进入本系统！</p>
+<a href="<%= request.getContextPath()%>/logout">注销</a>
 
 <h1>这是主页面</h1>
 <ul>
