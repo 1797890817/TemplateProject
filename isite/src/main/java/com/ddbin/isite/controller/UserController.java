@@ -92,7 +92,7 @@ public class UserController {
 		System.out.println("控制器+list+" + list + "+size=" + list.size());
 		if (list.size() > 0) {
 			mv.addObject("list", list);
-			mv.setViewName("cheng");
+			mv.setViewName("main");
 			return mv;
 		} else { // log.warn("用户名或密码错误");
 			mv.setViewName("redirect:index");
