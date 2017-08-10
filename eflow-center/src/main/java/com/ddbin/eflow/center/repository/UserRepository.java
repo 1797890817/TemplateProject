@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 /**
  * Created by deepin on 17-8-9.
  */
-//@Repository
+
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    User findFirstByUsername();
+    User findByUsername(String username);
 
 }

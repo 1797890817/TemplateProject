@@ -1,4 +1,4 @@
-package com.ddbin.eflow.center.appconfig;
+package com.ddbin.eflow.center;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;

@@ -1,4 +1,4 @@
-package com.ddbin.eflow.center.appconfig;
+package com.ddbin.eflow.center;
 
 import com.ddbin.eflow.center.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired(required = false)
+    @Autowired
     private UserRepository userRepository;
 
     @Override
@@ -33,7 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(new UserDetailsService() {
             @Override
             public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-                return userRepository.findFirstByUsername();
+                return userRepository.findByUsername(username);
+                //return null;
             }
         });
     }

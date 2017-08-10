@@ -1,6 +1,5 @@
 package com.ddbin.eflow.center.entity;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,8 +17,10 @@ import java.util.Collection;
 @Entity
 @Setter
 @Getter
-public class User extends BaseEntity implements UserDetails {
+public class User implements UserDetails {
     @Id
+    private Long id;
+    private Long domain;    //为不同的公司使用做准备，故需要有domain的标识字段
     private String username;
     private String fullname;
     private String password;
