@@ -66,7 +66,7 @@ public class LoginDemo extends JPanel {
 		constraints.anchor = GridBagConstraints.EAST;
 		constraints.weightx = 3;
 		constraints.weighty = 4;
-		add(title, constraints, 0, 0, 4, 1);
+		add(title, constraints, 0, 0, 4, 1); // 使用网格布局添加控件
 		add(name, constraints, 0, 1, 1, 1);
 		add(password, constraints, 0, 2, 1, 1);
 
@@ -76,8 +76,8 @@ public class LoginDemo extends JPanel {
 		add(ok, constraints, 0, 3, 1, 1);
 		add(cancel, constraints, 2, 3, 1, 1);
 
-		loginFrame.setResizable(true);	// 是否可以改变窗口的大小
-		loginFrame.setVisible(true); 	// 设置窗口的可见性
+		loginFrame.setResizable(true); // 是否可以改变窗口的大小
+		loginFrame.setVisible(true); // 设置窗口的可见性
 	}
 
 	public static void main(String[] args) {
