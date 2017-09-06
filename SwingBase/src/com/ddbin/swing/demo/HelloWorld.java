@@ -7,17 +7,17 @@ import javax.swing.JPanel;
 public class HelloWorld {
 
 	public static void main(String[] args) {
-		//¶¥²ãÈİÆ÷---> ÖĞ¼äÈİÆ÷---->»ù±¾×é¼ş
+		//é¡¶å±‚å®¹å™¨---> ä¸­é—´å®¹å™¨---->åŸºæœ¬ç»„ä»¶
 		//JFrame--->  jPanel---->jButton
-		JFrame jFrame = new JFrame("²âÊÔ´°¿Ú");	//´´½¨¶¥²ãÈİÆ÷
-		JPanel jPanel = new JPanel();			//´´½¨ÖĞ¼äÈİÆ÷
-		jFrame.setContentPane(jPanel); 			//½«ÖĞ¼äÈİÆ÷ÒÀÍĞÔÚ¶¥²ãÈİÆ÷ÄÚ
-		JButton jButton = new JButton("ÕâÊÇÒ»¸ö²âÊÔ°´Å¥");	//´´½¨Ò»¸ö»ù±¾×é¼ş
-		jPanel.add(jButton);					//½«»ù±¾×é¼şÒÀÍĞÔÚÖĞ¼äÈİÆ÷ÄÚ
+		JFrame jFrame = new JFrame("æµ‹è¯•çª—å£");	//åˆ›å»ºé¡¶å±‚å®¹å™¨
+		JPanel jPanel = new JPanel();			//åˆ›å»ºä¸­é—´å®¹å™¨
+		jFrame.setContentPane(jPanel); 			//å°†ä¸­é—´å®¹å™¨ä¾æ‰˜åœ¨é¡¶å±‚å®¹å™¨å†…
+		JButton jButton = new JButton("è¿™æ˜¯ä¸€ä¸ªæµ‹è¯•æŒ‰é’®");	//åˆ›å»ºä¸€ä¸ªåŸºæœ¬ç»„ä»¶
+		jPanel.add(jButton);					//å°†åŸºæœ¬ç»„ä»¶ä¾æ‰˜åœ¨ä¸­é—´å®¹å™¨å†…
 		
 		JButton jButton2 = new JButton("\u8FD9\u662F\u7B2C\u4E8C\u4E2A\u6D4B\u8BD5\u6309\u94AE");
 		jPanel.add(jButton2);
-		jFrame.setVisible(true);				//ÉèÖÃ¶¥²ãÈİÆ÷µÄ¿É¼ûĞÔ
+		jFrame.setVisible(true);				//è®¾ç½®é¡¶å±‚å®¹å™¨çš„å¯è§æ€§
 	}
 
 }

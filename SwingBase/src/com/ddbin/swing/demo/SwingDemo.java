@@ -3,17 +3,17 @@ package com.ddbin.swing.demo;
 import javax.swing.JFrame;
 
 public class SwingDemo {
-	static final int WIDTH = 300; // ¶¨Òå´°¿ÚµÄ¿í¶ÈÖµ
-	static final int HEIGTH = 200; // ¶¨Òå´°¿ÚµÄ¸ß¶ÈÖµ
+	static final int WIDTH = 300; // å®šä¹‰çª—å£çš„å®½åº¦å€¼
+	static final int HEIGTH = 200; // å®šä¹‰çª—å£çš„é«˜åº¦å€¼
 
 	public static void main(String[] args) {
-		// ´´½¨Ö÷´°¿Ú
+		// åˆ›å»ºä¸»çª—å£
 		JFrame jFrame = new JFrame("Hello Swing!");
-		// ÔOÖÃ´°¿ÚµÄ´óĞ¡
+		// è¨­ç½®çª—å£çš„å¤§å°
 		jFrame.setSize(WIDTH, HEIGTH);
-		// ÉèÖÃ¹Ø±ÕÍË³ö
+		// è®¾ç½®å…³é—­é€€å‡º
 		jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// ÉèÖÃ´°¿ÚµÄ¿É¼ûĞÔ
+		// è®¾ç½®çª—å£çš„å¯è§æ€§
 		jFrame.setVisible(true);
 
 	}
