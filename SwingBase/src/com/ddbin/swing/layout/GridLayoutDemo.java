@@ -19,7 +19,7 @@ public class GridLayoutDemo {
 		JPanel contentPane = new JPanel();
 		jFrame.setContentPane(contentPane);
 
-		// 创建25个普通按钮
+		// 创建9个普通按钮
 		JButton jButton1 = new JButton("生活");
 		JButton jButton2 = new JButton("工作");
 		JButton jButton3 = new JButton("睡觉");
